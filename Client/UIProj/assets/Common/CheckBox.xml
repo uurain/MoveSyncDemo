@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="501,248">
+  <controller name="type" pages="0,,1," selected="1"/>
+  <displayList>
+    <graph id="n0_czqr" name="n0" xy="0,0" size="501,248" type="rect" fillColor="#a8ffffff"/>
+    <component id="n1_czqr" name="btnCancel" src="or8y0" fileName="Button/Button.xml" xy="49,176" size="123,43">
+      <gearDisplay controller="type" pages="1"/>
+      <Button title="取消" titleFontSize="20"/>
+    </component>
+    <component id="n2_czqr" name="btnOk" src="or8y0" fileName="Button/Button.xml" xy="329,176" size="123,43">
+      <gearDisplay controller="type" pages="0,1"/>
+      <gearXY controller="type" pages="0" values="189,176" default="329,176"/>
+      <Button title="确定" titleFontSize="20"/>
+    </component>
+    <text id="n3_czqr" name="tip1" xy="245,58" pivot="0.5,0.5" size="10,32" fontSize="25" align="center" vAlign="middle" text=""/>
+  </displayList>
+</component>

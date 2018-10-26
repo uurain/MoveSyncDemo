@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750" opaque="false">
+  <displayList>
+    <component id="n0_or8y" name="btnSkill1" src="or8y0" pkg="fp7beb56" xy="1090,557" size="75,68">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+      <Button title="skill1" titleFontSize="26"/>
+    </component>
+  </displayList>
+</component>

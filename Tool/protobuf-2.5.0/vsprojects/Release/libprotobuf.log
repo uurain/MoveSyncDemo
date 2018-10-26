@@ -1,0 +1,80 @@
+﻿生成启动时间为 2017/1/22 星期日 下午 3:02:30。
+     1>项目“C:\protobuf-2.5.0\protobuf-2.5.0\vsprojects\libprotobuf.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../src /I. /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D LIBPROTOBUF_EXPORTS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt /wd4244 /wd4267 /wd4018 /wd4355 /wd4800 /wd4251 /wd4996 /wd4146 /wd4305 ..\src\google\protobuf\io\coded_stream.cc ..\src\google\protobuf\stubs\common.cc ..\src\google\protobuf\descriptor.cc ..\src\google\protobuf\descriptor.pb.cc ..\src\google\protobuf\descriptor_database.cc ..\src\google\protobuf\dynamic_message.cc ..\src\google\protobuf\extension_set.cc ..\src\google\protobuf\extension_set_heavy.cc ..\src\google\protobuf\generated_message_reflection.cc ..\src\google\protobuf\generated_message_util.cc ..\src\google\protobuf\io\gzip_stream.cc ..\src\google\protobuf\compiler\importer.cc ..\src\google\protobuf\message.cc ..\src\google\protobuf\message_lite.cc ..\src\google\protobuf\stubs\once.cc ..\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc ..\src\google\protobuf\compiler\parser.cc ..\src\google\protobuf\io\printer.cc ..\src\google\protobuf\reflection_ops.cc ..\src\google\protobuf\repeated_field.cc ..\src\google\protobuf\service.cc ..\src\google\protobuf\stubs\structurally_valid.cc ..\src\google\protobuf\stubs\strutil.cc ..\src\google\protobuf\stubs\substitute.cc ..\src\google\protobuf\text_format.cc ..\src\google\protobuf\io\tokenizer.cc ..\src\google\protobuf\unknown_field_set.cc ..\src\google\protobuf\wire_format.cc ..\src\google\protobuf\wire_format_lite.cc ..\src\google\protobuf\io\zero_copy_stream.cc ..\src\google\protobuf\io\zero_copy_stream_impl.cc ..\src\google\protobuf\io\zero_copy_stream_impl_lite.cc ..\src\google\protobuf\stubs\stringprintf.cc
+         coded_stream.cc
+         common.cc
+         descriptor.cc
+         descriptor.pb.cc
+         descriptor_database.cc
+         dynamic_message.cc
+         extension_set.cc
+         extension_set_heavy.cc
+         generated_message_reflection.cc
+         generated_message_util.cc
+         gzip_stream.cc
+         importer.cc
+         message.cc
+         message_lite.cc
+         once.cc
+         atomicops_internals_x86_msvc.cc
+         parser.cc
+         printer.cc
+         reflection_ops.cc
+         repeated_field.cc
+         正在生成代码...
+         正在编译...
+         service.cc
+         structurally_valid.cc
+         strutil.cc
+         substitute.cc
+         text_format.cc
+         tokenizer.cc
+         unknown_field_set.cc
+         wire_format.cc
+         wire_format_lite.cc
+         zero_copy_stream.cc
+         zero_copy_stream_impl.cc
+         zero_copy_stream_impl_lite.cc
+         stringprintf.cc
+         正在生成代码...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"Release\libprotobuf.lib" /NOLOGO Release\coded_stream.obj
+         Release\common.obj
+         Release\descriptor.obj
+         Release\descriptor.pb.obj
+         Release\descriptor_database.obj
+         Release\dynamic_message.obj
+         Release\extension_set.obj
+         Release\extension_set_heavy.obj
+         Release\generated_message_reflection.obj
+         Release\generated_message_util.obj
+         Release\gzip_stream.obj
+         Release\importer.obj
+         Release\message.obj
+         Release\message_lite.obj
+         Release\once.obj
+         Release\atomicops_internals_x86_msvc.obj
+         Release\parser.obj
+         Release\printer.obj
+         Release\reflection_ops.obj
+         Release\repeated_field.obj
+         Release\service.obj
+         Release\structurally_valid.obj
+         Release\strutil.obj
+         Release\substitute.obj
+         Release\text_format.obj
+         Release\tokenizer.obj
+         Release\unknown_field_set.obj
+         Release\wire_format.obj
+         Release\wire_format_lite.obj
+         Release\zero_copy_stream.obj
+         Release\zero_copy_stream_impl.obj
+         Release\zero_copy_stream_impl_lite.obj
+         Release\stringprintf.obj
+         libprotobuf.vcxproj -> C:\protobuf-2.5.0\protobuf-2.5.0\vsprojects\Release\libprotobuf.lib
+     1>已完成生成项目“C:\protobuf-2.5.0\protobuf-2.5.0\vsprojects\libprotobuf.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:18.65

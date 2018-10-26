@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <graph id="n4_or8y" name="n4" xy="0,0" size="1334,750" type="rect" fillColor="#adffffff">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <component id="n0_or8y" name="btnLogin" src="or8y0" pkg="fp7beb56" xy="545,538" size="242,81">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Button title="登陆" titleFontSize="32"/>
+    </component>
+    <component id="n1_or8y" name="inputUsername" src="or8y2k" pkg="fp7beb56" xy="517,317" size="299,41">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Label titleFontSize="30"/>
+    </component>
+    <text id="n3_or8y" name="n3" xy="404,319" size="95,39" fontSize="30" text="账号：">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

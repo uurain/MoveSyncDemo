@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="frg4tunr" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="or8y0" name="Login.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="Login" path="E:\tx_share\RpgDemo\Client\Assets\AbAsset\UI\Package\&amp;Login"/>
+</packageDescription>

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 1799216676
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 76d6f363548e90297ec6ee66fa42c1b2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/AbAsset/UI/Package/&Loading/Loading@sprites.bytes
+- Assets/AbAsset/UI/Package/&Loading/Loading.bytes
+Dependencies: []

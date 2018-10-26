@@ -1,0 +1,150 @@
+package msg;
+
+message Vector2
+{ 
+    required float		x = 1;
+    required float      y = 2;
+}
+message Vector3
+{ 
+    required float		x = 1;
+    required float      y = 2;
+    required float      z = 3;
+}
+
+message ReqLogin 
+{
+	required string accountId = 1;
+}
+
+message AckLogin 
+{
+	required int32 errorCode = 1;
+	optional int32 uid = 2;
+}
+
+message PlayerInfo
+{
+	optional int32 atk = 6;
+	optional int32 def = 7;
+	optional int32 hp = 8;
+	optional int32 hpMax = 9;
+	optional int32 moveSpeed = 10;
+	optional int32 level = 11;
+	optional int32 modelClothes = 12; 
+	optional string name = 13;
+}
+
+message PlayerEntryInfo//对象出现基本信息
+{
+	required int32	object_guid = 1;
+	required float	x = 2;
+	required float	y = 3;
+	required float	z = 4;
+	optional int32	r = 5;
+
+	required PlayerInfo player_info = 6;
+}
+
+message AckPlayerEntryList//对象出现列表
+{
+	repeated PlayerEntryInfo object_list = 1;
+}
+
+message AckPlayerLeaveList//对象离去列表
+{
+	repeated int32 	object_list = 1;
+}
+
+// 属性同步
+message AckPublicPropertyList
+{
+	required int32 id = 1;
+	required PlayerInfo player_info = 2;
+}
+
+// 场景信息
+message AckSwapScene
+{
+	required int32		scene_id = 1;
+	optional float 		x = 2;
+	optional float 		y = 3;
+	optional float 		z = 4;
+	optional int32      r = 5;
+}
+
+message ReqAckStop
+{
+	required int32 mover = 1;
+	required Vector3 source_pos = 2;
+}
+
+message ReqAckPlayerMove
+{
+	required int32 	mover = 1;
+	repeated Vector3 target_pos = 2;
+}
+
+enum UseSkillResult
+{
+	CAST_SKILL_SUCCESS = 0;
+	CAST_SKILL_NOT_EXIST = 1;
+	CAST_SKILL_IN_CD = 2;
+	CAST_SKILL_NOTENOUGH_HP = 3;
+	CAST_SKILL_NOTENOUGH_MP = 4;
+	CAST_SKILL_FAR_DISTANCE = 5;	
+	CAST_SKILL_NO_TARGET = 6;
+	CAST_SKILL_DISABLED = 7;	
+	CAST_SKILL_BAD_TARGET = 8;
+	CAST_SKILL_CASTING = 9;
+	CAST_SKILL_UNKNOW_ERROR = 10;
+}
+
+// 释放技能失败
+message AckSkillFail
+{
+	required int32 skill_id = 1;
+	required UseSkillResult result = 2;
+}
+
+// 技能成功开始释放
+message AckSkillStart
+{
+	required int32 caster = 1;
+	required int32 skill_id = 2;
+	optional int32 dir = 3;
+}
+
+enum DamageFlag
+{
+	DAMAGE_FLAG_DODGE = 1;	
+	DAMAGE_FLAG_PARRY = 2; //化解
+	DAMAGE_FLAG_CRIT = 4;
+	DAMAGE_FLAG_WITHSTAND = 8; //灵击
+}
+
+message DamageInfo
+{
+	required int32 target = 1;
+	required int32 damage = 2;
+	required int32 flags = 3;
+	optional int32 leech = 4; //吸血
+}
+
+// 技能结果用于伤害显示
+message AckSkillResult
+{
+	required int32 skill_id = 1;
+	required int32 caster = 2;
+	repeated DamageInfo damages = 3;
+}
+
+// 技能打断
+message AckSkillStop
+{
+	required int32 skill_id = 1;
+	required int32 caster = 2;
+}
+
+
+

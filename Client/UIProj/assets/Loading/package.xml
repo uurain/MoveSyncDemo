@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="f6rsbrxn" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="or8y0" name="Loading.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="Loading" path="E:\tx_share\RpgDemo\Client\Assets\AbAsset\UI\Package\&amp;Loading"/>
+</packageDescription>

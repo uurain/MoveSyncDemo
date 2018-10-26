@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="128,51" pivot="0.5,1" anchor="true">
+  <displayList>
+    <text id="n0_czqr" name="name" xy="12,0" pivot="0.5,0.5" size="104,31" fontSize="24" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" text="sdfsdfsdf"/>
+    <component id="n1_czqr" name="blood" src="or8y2u" fileName="ProgressBar/ProgressBar.xml" xy="-8,37">
+      <ProgressBar value="100" max="100"/>
+    </component>
+  </displayList>
+</component>

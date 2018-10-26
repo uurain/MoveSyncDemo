@@ -1,0 +1,15 @@
+﻿生成启动时间为 2014/12/10 15:00:11。
+     1>项目“C:\protobuf-2.5.0\protobuf-2.5.0\gtest\msvc\gtest.vcxproj”在节点 3 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.. /I..\include /ZI /nologo /W3 /WX- /Od /Oy- /D _VARIADIC_MAX=10 /D WIN32 /D _DEBUG /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"protobuf/Debug\gtest\\" /Fd"protobuf/Debug\gtest\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "..\src\gtest-all.cc"
+         gtest-all.cc
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1354,5): warning MSB8012: TargetPath(C:\protobuf-2.5.0\protobuf-2.5.0\gtest\msvc\protobuf/Debug\gtest.lib) does not match the Library's OutputFile property value (C:\protobuf-2.5.0\protobuf-2.5.0\gtest\msvc\protobuf\Debug\gtestd.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1356,5): warning MSB8012: TargetName(gtest) does not match the Library's OutputFile property value (gtestd). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"protobuf/Debug\gtestd.lib" /NOLOGO "protobuf/Debug\gtest\gtest-all.obj"
+         gtest.vcxproj -> C:\protobuf-2.5.0\protobuf-2.5.0\gtest\msvc\protobuf/Debug\gtest.lib
+     1>已完成生成项目“C:\protobuf-2.5.0\protobuf-2.5.0\gtest\msvc\gtest.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.74

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="fp7beb56" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="or8y0" name="Button.xml" path="/Button/" exported="true"/>
+    <image id="or8y1" name="b7.png" path="/images/" exported="true" scale="9grid" scale9grid="4,2,67,13"/>
+    <image id="or8y2" name="b5.png" path="/images/" exported="true" scale="9grid" scale9grid="3,3,68,11"/>
+    <image id="or8y3" name="b6.png" path="/images/" exported="true" scale="9grid" scale9grid="4,2,65,12"/>
+    <component id="or8y4" name="FlatIconButton.xml" path="/Button/" exported="true"/>
+    <component id="or8y5" name="IconButton.xml" path="/Button/" exported="true"/>
+    <component id="or8y6" name="AutoSizeButton.xml" path="/Button/" exported="true"/>
+    <component id="or8y7" name="LinkButton.xml" path="/Button/" exported="true"/>
+    <component id="or8y8" name="Checkbox.xml" path="/Checkbox/" exported="true"/>
+    <image id="or8y9" name="gou.png" path="/images/" exported="true" qualityOption="source"/>
+    <component id="or8ya" name="ComboBox.xml" path="/ComboBox/" exported="true"/>
+    <image id="or8yb" name="c1.png" path="/images/" exported="true" scale="9grid" scale9grid="7,3,56,12" qualityOption="source"/>
+    <image id="or8yc" name="c3.png" path="/images/" exported="true" scale="9grid" scale9grid="11,5,47,10" qualityOption="source"/>
+    <image id="or8yd" name="c2.png" path="/images/" exported="true" scale="9grid" scale9grid="5,5,52,10" qualityOption="source"/>
+    <image id="or8ye" name="c4.png" path="/images/" exported="true" scale="9grid" scale9grid="10,5,45,10" qualityOption="source"/>
+    <component id="or8yf" name="ComboBoxPopup.xml" path="/ComboBox/" exported="true"/>
+    <image id="or8yg" name="background.png" path="/images/" exported="true" scale="9grid" scale9grid="11,8,192,115" qualityOption="source"/>
+    <component id="or8yh" name="ComboBoxItem.xml" path="/ComboBox/"/>
+    <component id="or8yi" name="DropdownButton.xml" path="/ComboBox/" exported="true"/>
+    <image id="or8yj" name="j1.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8yk" name="j2.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8yl" name="j3.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8ym" name="j4.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8yn" name="button_light.png" path="/images/" exported="true" scale="9grid" scale9grid="8,8,16,16"/>
+    <image id="or8yo" name="b1.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8yp" name="b2.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8yq" name="b3.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8yr" name="b4.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8ys" name="p4.png" path="/images/" exported="true" scale="9grid" scale9grid="5,4,39,8" qualityOption="source"/>
+    <image id="or8yt" name="p16.png" path="/images/" exported="true" scale="9grid" scale9grid="5,4,31,8" qualityOption="source"/>
+    <image id="or8yu" name="a8(1).png" path="/images/" exported="true" scale="9grid" scale9grid="7,3,76,12" qualityOption="source"/>
+    <image id="or8yv" name="f1.png" path="/images/" exported="true" scale="9grid" scale9grid="18,36,345,205" qualityOption="source"/>
+    <image id="or8yw" name="a13.png" path="/images/" exported="true"/>
+    <image id="or8yx" name="a12.png" path="/images/" exported="true"/>
+    <image id="or8yy" name="a11.png" path="/images/" exported="true"/>
+    <image id="or8yz" name="a10.png" path="/images/" exported="true"/>
+    <image id="or8y10" name="a15.png" path="/images/" exported="true"/>
+    <image id="or8y11" name="a14.png" path="/images/" exported="true"/>
+    <image id="or8y12" name="a16.png" path="/images/" exported="true" scale="tile"/>
+    <image id="or8y13" name="a9.png" path="/images/" exported="true" scale9grid="6,5,6,10" qualityOption="source"/>
+    <image id="or8y14" name="a8.png" path="/images/" exported="true" scale9grid="3,2,6,9" qualityOption="source"/>
+    <image id="or8y15" name="p1.png" path="/images/" exported="true" scale="9grid" scale9grid="6,5,144,50" qualityOption="source"/>
+    <image id="or8y16" name="VtSeperator2.png" path="/images/" exported="true"/>
+    <image id="or8y17" name="a18.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y18" name="HzSeperator2.png" path="/images/" exported="true"/>
+    <image id="or8y19" name="a9(1).png" path="/images/" exported="true" scale="9grid" scale9grid="11,5,83,10" qualityOption="source"/>
+    <image id="or8y1a" name="p3.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1b" name="p2.png" path="/images/" exported="true" scale="9grid" scale9grid="10,4,121,4" qualityOption="source"/>
+    <image id="or8y1c" name="a3.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1d" name="a2.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1e" name="a1.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1f" name="a4.png" path="/images/" exported="true"/>
+    <image id="or8y1g" name="s10.png" path="/images/" exported="true" scale="9grid" scale9grid="4,7,6,187" qualityOption="source"/>
+    <image id="or8y1h" name="s6.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1i" name="s4.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1j" name="s5.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1k" name="s9.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1l" name="s7.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1m" name="s8.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1n" name="s1.png" path="/images/" exported="true" scale="9grid" scale9grid="4,2,5,109" qualityOption="source"/>
+    <image id="or8y1o" name="s2.png" path="/images/" exported="true" scale="9grid" scale9grid="4,2,5,111" qualityOption="source"/>
+    <image id="or8y1p" name="s3.png" path="/images/" exported="true" scale="9grid" scale9grid="4,2,5,111" qualityOption="source"/>
+    <image id="or8y1q" name="bar12.png" path="/images/" exported="true" scale="9grid" scale9grid="3,3,96,6" qualityOption="source"/>
+    <image id="or8y1r" name="bar14.png" path="/images/" exported="true" scale="9grid" scale9grid="3,4,122,5" qualityOption="source"/>
+    <image id="or8y1s" name="bar13.png" path="/images/" exported="true" scale="9grid" scale9grid="3,4,129,5" qualityOption="source"/>
+    <image id="or8y1t" name="2016-02-27_224540.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1u" name="2016-02-27_224618.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1v" name="2016-02-27_224602.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1w" name="2016-02-27_224326.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1x" name="2016-02-27_224443.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1y" name="2016-02-27_224421.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y1z" name="p8.png" path="/images/" exported="true"/>
+    <image id="or8y20" name="p9.png" path="/images/" exported="true"/>
+    <image id="or8y21" name="f7.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y22" name="f6.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y23" name="f8.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y24" name="a5.png" path="/images/" exported="true" scale="9grid" scale9grid="3,5,60,10" qualityOption="source"/>
+    <image id="or8y25" name="a7.png" path="/images/" exported="true" scale="9grid" scale9grid="6,3,38,10" qualityOption="source"/>
+    <image id="or8y26" name="a72.png" path="/images/" exported="true" scale="9grid" scale9grid="7,5,38,10" qualityOption="source"/>
+    <image id="or8y27" name="a52.png" path="/images/" exported="true" scale="9grid" scale9grid="5,5,55,10" qualityOption="source"/>
+    <image id="or8y28" name="bar15.png" path="/images/" exported="true" scale="9grid" scale9grid="4,7,71,5" qualityOption="source"/>
+    <image id="or8y29" name="2016-02-29_120446.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2a" name="2016-02-29_120502.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2b" name="i3.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2c" name="i2.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2d" name="i1.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2e" name="i5.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2f" name="i4.png" path="/images/" exported="true" qualityOption="source"/>
+    <image id="or8y2g" name="f2.png" path="/images/" exported="true" scale="9grid" scale9grid="32,36,295,85"/>
+    <image id="or8y2h" name="f5.png" path="/images/" exported="true"/>
+    <image id="or8y2i" name="f4.png" path="/images/" exported="true"/>
+    <image id="or8y2j" name="f3.png" path="/images/" exported="true"/>
+    <component id="or8y2k" name="TextInput.xml" path="/Input/" exported="true"/>
+    <component id="or8y2l" name="NumericInput.xml" path="/Input/" exported="true"/>
+    <component id="or8y2m" name="TextArea.xml" path="/Input/" exported="true"/>
+    <component id="or8y2n" name="ListItem.xml" path="/List/" exported="true"/>
+    <component id="or8y2o" name="IconListItem.xml" path="/List/" exported="true"/>
+    <component id="or8y2p" name="CheckIconListItem.xml" path="/List/" exported="true"/>
+    <component id="or8y2q" name="MenuBarItem.xml" path="/Menu/" exported="true"/>
+    <component id="or8y2r" name="PopupMenuItem.xml" path="/Menu/" exported="true"/>
+    <component id="or8y2s" name="PopupMenuItem2.xml" path="/Menu/"/>
+    <component id="or8y2t" name="PopupMenu.xml" path="/Menu/" exported="true"/>
+    <component id="or8y2u" name="ProgressBar.xml" path="/ProgressBar/" exported="true"/>
+    <component id="or8y2v" name="RadioButton.xml" path="/RadioButton/" exported="true"/>
+    <component id="or8y2w" name="ScrollBar_VT.xml" path="/ScrollBar/" exported="true"/>
+    <component id="or8y2x" name="ScrollUpButton.xml" path="/ScrollBar/"/>
+    <component id="or8y2y" name="ScrollDownButton.xml" path="/ScrollBar/"/>
+    <component id="or8y2z" name="GripButton_VT.xml" path="/ScrollBar/"/>
+    <component id="or8y30" name="ScrollBar_HZ.xml" path="/ScrollBar/" exported="true"/>
+    <component id="or8y31" name="GripButton_HZ.xml" path="/ScrollBar/"/>
+    <component id="or8y32" name="ScrollRightButton.xml" path="/ScrollBar/"/>
+    <component id="or8y33" name="ScrollLeftButton.xml" path="/ScrollBar/"/>
+    <component id="or8y34" name="TabCloseButton.xml" path="/Tab/"/>
+    <component id="or8y35" name="ClosableTabButton.xml" path="/Tab/" exported="true"/>
+    <component id="or8y36" name="TabButton.xml" path="/Tab/" exported="true"/>
+    <component id="or8y37" name="TabIconButton.xml" path="/Tab/" exported="true"/>
+    <component id="or8y38" name="ClosableTabIconButton.xml" path="/Tab/" exported="true"/>
+    <component id="or8y39" name="FileTabButton.xml" path="/Tab/" exported="true"/>
+    <component id="or8y3a" name="TitleBar.xml" path="/TitleBar/" exported="true"/>
+    <component id="or8y3b" name="TooltipsWin.xml" path="/Tooltips/" exported="true"/>
+    <component id="or8y3c" name="TreeItem.xml" path="/Tree/" exported="true"/>
+    <component id="or8y3d" name="TreeExpandButton.xml" path="/Tree/" exported="true"/>
+    <component id="or8y3e" name="EditableTreeItem.xml" path="/Tree/" exported="true"/>
+    <component id="or8y3f" name="WindowFrame.xml" path="/Window/" exported="true"/>
+    <component id="or8y3g" name="WindowCloseButton.xml" path="/Window/" exported="true"/>
+    <component id="ey0u3h" name="CheckBox.xml" path="/" exported="true"/>
+    <component id="czqr3i" name="FullScreenBtn.xml" path="/" exported="true"/>
+    <component id="czqr3j" name="HeadBar.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="Common" path="E:\tx_share\RpgDemo\Client\Assets\AbAsset\UI\Package\&amp;Common"/>
+</packageDescription>
