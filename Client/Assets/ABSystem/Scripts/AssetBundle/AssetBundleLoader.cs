@@ -18,6 +18,8 @@ namespace Tangzx.ABSystem
         public AssetBundleInfo bundleInfo;
         public AssetBundleManager bundleManager;
         public LoadState state = LoadState.State_None;
+        public bool loadAsset = false;
+        public UnityEngine.Object loadedAsset;
 
         protected AssetBundleLoader[] depLoaders;
 
@@ -184,9 +186,9 @@ namespace Tangzx.ABSystem
             _assetBundleCachedFile = string.Format("{0}/{1}", bundleManager.pathResolver.BundleCacheDir, bundleName);
             _assetBundleSourceFile = bundleManager.pathResolver.GetBundleSourceFile(bundleName);
 
-            if (File.Exists(_assetBundleCachedFile))
-                bundleManager.StartCoroutine(LoadFromCachedFile());
-            else
+            //if (File.Exists(_assetBundleCachedFile))
+            //    bundleManager.StartCoroutine(LoadFromCachedFile());
+            //else
                 bundleManager.StartCoroutine(LoadFromPackage());
         }
 
@@ -269,11 +271,16 @@ namespace Tangzx.ABSystem
                 this.bundleInfo = bundleManager.CreateBundleInfo(this, null, _bundle);
                 this.bundleInfo.isReady = true;
                 this.bundleInfo.onUnloaded = OnBundleUnload;
+                if(loadedAsset != null)
+                {
+                    this.bundleInfo.mainObject = loadedAsset;
+                }                
                 foreach (AssetBundleLoader depLoader in depLoaders)
                 {
                     bundleInfo.AddDependency(depLoader.bundleInfo);
                 }
 
+                loadedAsset = null;
                 _bundle = null;
             }
             base.Complete();

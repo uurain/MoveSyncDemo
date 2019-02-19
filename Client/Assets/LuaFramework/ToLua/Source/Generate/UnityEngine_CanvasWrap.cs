@@ -29,6 +29,7 @@ public class UnityEngine_CanvasWrap
 		L.RegVar("normalizedSortingGridSize", get_normalizedSortingGridSize, set_normalizedSortingGridSize);
 		L.RegVar("sortingLayerID", get_sortingLayerID, set_sortingLayerID);
 		L.RegVar("cachedSortingLayerValue", get_cachedSortingLayerValue, null);
+		L.RegVar("additionalShaderChannels", get_additionalShaderChannels, set_additionalShaderChannels);
 		L.RegVar("sortingLayerName", get_sortingLayerName, set_sortingLayerName);
 		L.RegVar("rootCanvas", get_rootCanvas, null);
 		L.RegVar("willRenderCanvases", get_willRenderCanvases, set_willRenderCanvases);
@@ -430,6 +431,25 @@ public class UnityEngine_CanvasWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_additionalShaderChannels(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Canvas obj = (UnityEngine.Canvas)o;
+			UnityEngine.AdditionalCanvasShaderChannels ret = obj.additionalShaderChannels;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index additionalShaderChannels on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_sortingLayerName(IntPtr L)
 	{
 		object o = null;
@@ -699,6 +719,25 @@ public class UnityEngine_CanvasWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index sortingLayerID on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_additionalShaderChannels(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Canvas obj = (UnityEngine.Canvas)o;
+			UnityEngine.AdditionalCanvasShaderChannels arg0 = (UnityEngine.AdditionalCanvasShaderChannels)ToLua.CheckObject(L, 2, typeof(UnityEngine.AdditionalCanvasShaderChannels));
+			obj.additionalShaderChannels = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index additionalShaderChannels on a nil value");
 		}
 	}
 

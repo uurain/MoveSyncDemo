@@ -198,7 +198,7 @@ namespace Tangzx.ABSystem
         /// <returns></returns>
         public AssetBundleLoader Load(string path, LoadAssetCompleteHandler handler = null)
         {
-            return Load(path, 0, handler);
+            return Load(path, 0, false, handler);
         }
 
         /// <summary>
@@ -208,13 +208,14 @@ namespace Tangzx.ABSystem
         /// <param name="prority">优先级</param>
         /// <param name="handler">回调</param>
         /// <returns></returns>
-        public AssetBundleLoader Load(string path, int prority, LoadAssetCompleteHandler handler = null)
+        public AssetBundleLoader Load(string path, int prority, bool loadAsset, LoadAssetCompleteHandler handler = null)
         {
 #if _AB_MODE_
             AssetBundleLoader loader = this.CreateLoader(HashUtil.Get(path.ToLower()) + ".ab", path);
 #else
             AssetBundleLoader loader = this.CreateLoader(path);
 #endif
+            loader.loadAsset = loadAsset;
             loader.prority = prority;
             loader.onComplete += handler;
 
@@ -269,8 +270,6 @@ namespace Tangzx.ABSystem
             return new EditorModeAssetBundleLoader();
 #elif UNITY_IOS
             return new IOSAssetBundleLoader();
-#elif UNITY_ANDROID
-            return new MobileAssetBundleLoader();
 #else
             return new MobileAssetBundleLoader();
 #endif

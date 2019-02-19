@@ -11,11 +11,11 @@ namespace Tangzx.ABSystem
     /// </summary>
     public class EditorModeAssetBundleLoader : IOSAssetBundleLoader
     {
-        protected override IEnumerator LoadFromPackage()
-        {
-            _assetBundleSourceFile = AssetBundlePathResolver.instance.GetBundleSourceFile(bundleName, false);
-            return base.LoadFromPackage();
-        }
+        //protected override IEnumerator LoadFromPackage()
+        //{
+        //    _assetBundleSourceFile = AssetBundlePathResolver.instance.GetBundleSourceFile(bundleName, false);
+        //    return base.LoadFromPackage();
+        //}
     }
 }
 #else

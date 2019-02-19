@@ -11,7 +11,6 @@ public class UnityEngine_CameraWrap
 		L.RegFunction("ResetWorldToCameraMatrix", ResetWorldToCameraMatrix);
 		L.RegFunction("ResetProjectionMatrix", ResetProjectionMatrix);
 		L.RegFunction("ResetAspect", ResetAspect);
-		L.RegFunction("ResetFieldOfView", ResetFieldOfView);
 		L.RegFunction("GetStereoViewMatrix", GetStereoViewMatrix);
 		L.RegFunction("SetStereoViewMatrix", SetStereoViewMatrix);
 		L.RegFunction("ResetStereoViewMatrices", ResetStereoViewMatrices);
@@ -19,6 +18,7 @@ public class UnityEngine_CameraWrap
 		L.RegFunction("SetStereoProjectionMatrix", SetStereoProjectionMatrix);
 		L.RegFunction("CalculateFrustumCorners", CalculateFrustumCorners);
 		L.RegFunction("ResetStereoProjectionMatrices", ResetStereoProjectionMatrices);
+		L.RegFunction("ResetTransparencySortSettings", ResetTransparencySortSettings);
 		L.RegFunction("WorldToScreenPoint", WorldToScreenPoint);
 		L.RegFunction("WorldToViewportPoint", WorldToViewportPoint);
 		L.RegFunction("ViewportToWorldPoint", ViewportToWorldPoint);
@@ -54,11 +54,14 @@ public class UnityEngine_CameraWrap
 		L.RegVar("farClipPlane", get_farClipPlane, set_farClipPlane);
 		L.RegVar("renderingPath", get_renderingPath, set_renderingPath);
 		L.RegVar("actualRenderingPath", get_actualRenderingPath, null);
-		L.RegVar("hdr", get_hdr, set_hdr);
+		L.RegVar("allowHDR", get_allowHDR, set_allowHDR);
+		L.RegVar("forceIntoRenderTexture", get_forceIntoRenderTexture, set_forceIntoRenderTexture);
+		L.RegVar("allowMSAA", get_allowMSAA, set_allowMSAA);
 		L.RegVar("orthographicSize", get_orthographicSize, set_orthographicSize);
 		L.RegVar("orthographic", get_orthographic, set_orthographic);
 		L.RegVar("opaqueSortMode", get_opaqueSortMode, set_opaqueSortMode);
 		L.RegVar("transparencySortMode", get_transparencySortMode, set_transparencySortMode);
+		L.RegVar("transparencySortAxis", get_transparencySortAxis, set_transparencySortAxis);
 		L.RegVar("depth", get_depth, set_depth);
 		L.RegVar("aspect", get_aspect, set_aspect);
 		L.RegVar("cullingMask", get_cullingMask, set_cullingMask);
@@ -67,6 +70,7 @@ public class UnityEngine_CameraWrap
 		L.RegVar("rect", get_rect, set_rect);
 		L.RegVar("pixelRect", get_pixelRect, set_pixelRect);
 		L.RegVar("targetTexture", get_targetTexture, set_targetTexture);
+		L.RegVar("activeTexture", get_activeTexture, null);
 		L.RegVar("pixelWidth", get_pixelWidth, null);
 		L.RegVar("pixelHeight", get_pixelHeight, null);
 		L.RegVar("cameraToWorldMatrix", get_cameraToWorldMatrix, null);
@@ -206,22 +210,6 @@ public class UnityEngine_CameraWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int ResetFieldOfView(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.Camera obj = (UnityEngine.Camera)ToLua.CheckObject(L, 1, typeof(UnityEngine.Camera));
-			obj.ResetFieldOfView();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int GetStereoViewMatrix(IntPtr L)
 	{
 		try
@@ -337,6 +325,22 @@ public class UnityEngine_CameraWrap
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Camera obj = (UnityEngine.Camera)ToLua.CheckObject(L, 1, typeof(UnityEngine.Camera));
 			obj.ResetStereoProjectionMatrices();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ResetTransparencySortSettings(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)ToLua.CheckObject(L, 1, typeof(UnityEngine.Camera));
+			obj.ResetTransparencySortSettings();
 			return 0;
 		}
 		catch (Exception e)
@@ -952,7 +956,7 @@ public class UnityEngine_CameraWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_hdr(IntPtr L)
+	static int get_allowHDR(IntPtr L)
 	{
 		object o = null;
 
@@ -960,13 +964,51 @@ public class UnityEngine_CameraWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Camera obj = (UnityEngine.Camera)o;
-			bool ret = obj.hdr;
+			bool ret = obj.allowHDR;
 			LuaDLL.lua_pushboolean(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index hdr on a nil value");
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index allowHDR on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_forceIntoRenderTexture(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			bool ret = obj.forceIntoRenderTexture;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index forceIntoRenderTexture on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_allowMSAA(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			bool ret = obj.allowMSAA;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index allowMSAA on a nil value");
 		}
 	}
 
@@ -1043,6 +1085,25 @@ public class UnityEngine_CameraWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index transparencySortMode on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_transparencySortAxis(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			UnityEngine.Vector3 ret = obj.transparencySortAxis;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index transparencySortAxis on a nil value");
 		}
 	}
 
@@ -1189,12 +1250,31 @@ public class UnityEngine_CameraWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Camera obj = (UnityEngine.Camera)o;
 			UnityEngine.RenderTexture ret = obj.targetTexture;
-			ToLua.PushSealed(L, ret);
+			ToLua.Push(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index targetTexture on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_activeTexture(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			UnityEngine.RenderTexture ret = obj.activeTexture;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index activeTexture on a nil value");
 		}
 	}
 
@@ -1832,7 +1912,7 @@ public class UnityEngine_CameraWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_hdr(IntPtr L)
+	static int set_allowHDR(IntPtr L)
 	{
 		object o = null;
 
@@ -1841,12 +1921,50 @@ public class UnityEngine_CameraWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Camera obj = (UnityEngine.Camera)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
-			obj.hdr = arg0;
+			obj.allowHDR = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index hdr on a nil value");
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index allowHDR on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_forceIntoRenderTexture(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.forceIntoRenderTexture = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index forceIntoRenderTexture on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_allowMSAA(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.allowMSAA = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index allowMSAA on a nil value");
 		}
 	}
 
@@ -1923,6 +2041,25 @@ public class UnityEngine_CameraWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index transparencySortMode on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_transparencySortAxis(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
+			obj.transparencySortAxis = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index transparencySortAxis on a nil value");
 		}
 	}
 
@@ -2068,7 +2205,7 @@ public class UnityEngine_CameraWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Camera obj = (UnityEngine.Camera)o;
-			UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 2, typeof(UnityEngine.RenderTexture));
+			UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckObject<UnityEngine.RenderTexture>(L, 2);
 			obj.targetTexture = arg0;
 			return 0;
 		}

@@ -17,5 +17,6 @@ namespace LuaFramework {
         public const string GameScene = "GameSceneManager";
         public const string Update = "UpdateManager";
         public const string Download = "DownloadManager";
+        public const string Data = "DataMgr";
     }
 }

@@ -32,6 +32,8 @@ public class UnityEngine_PhysicsWrap
 		L.RegFunction("IgnoreCollision", IgnoreCollision);
 		L.RegFunction("IgnoreLayerCollision", IgnoreLayerCollision);
 		L.RegFunction("GetIgnoreLayerCollision", GetIgnoreLayerCollision);
+		L.RegFunction("ComputePenetration", ComputePenetration);
+		L.RegFunction("ClosestPoint", ClosestPoint);
 		L.RegConstant("IgnoreRaycastLayer", 4);
 		L.RegConstant("DefaultRaycastLayers", -5);
 		L.RegConstant("AllLayers", -1);
@@ -1918,6 +1920,52 @@ public class UnityEngine_PhysicsWrap
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 			bool o = UnityEngine.Physics.GetIgnoreLayerCollision(arg0, arg1);
 			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ComputePenetration(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 8);
+			UnityEngine.Collider arg0 = (UnityEngine.Collider)ToLua.CheckObject<UnityEngine.Collider>(L, 1);
+			UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
+			UnityEngine.Quaternion arg2 = ToLua.ToQuaternion(L, 3);
+			UnityEngine.Collider arg3 = (UnityEngine.Collider)ToLua.CheckObject<UnityEngine.Collider>(L, 4);
+			UnityEngine.Vector3 arg4 = ToLua.ToVector3(L, 5);
+			UnityEngine.Quaternion arg5 = ToLua.ToQuaternion(L, 6);
+			UnityEngine.Vector3 arg6;
+			float arg7;
+			bool o = UnityEngine.Physics.ComputePenetration(arg0, arg1, arg2, arg3, arg4, arg5, out arg6, out arg7);
+			LuaDLL.lua_pushboolean(L, o);
+			ToLua.Push(L, arg6);
+			LuaDLL.lua_pushnumber(L, arg7);
+			return 3;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClosestPoint(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 4);
+			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 1);
+			UnityEngine.Collider arg1 = (UnityEngine.Collider)ToLua.CheckObject<UnityEngine.Collider>(L, 2);
+			UnityEngine.Vector3 arg2 = ToLua.ToVector3(L, 3);
+			UnityEngine.Quaternion arg3 = ToLua.ToQuaternion(L, 4);
+			UnityEngine.Vector3 o = UnityEngine.Physics.ClosestPoint(arg0, arg1, arg2, arg3);
+			ToLua.Push(L, o);
 			return 1;
 		}
 		catch (Exception e)

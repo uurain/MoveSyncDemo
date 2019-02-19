@@ -44,7 +44,7 @@ public class ResManager : Manager
                     return;
                 }
             }
-            AppFacade.Instance.GetManager<ResManager>(ManagerName.Resource).assetManager.Load(path, prority, OnLoadComplete);
+            AppFacade.Instance.GetManager<ResManager>(ManagerName.Resource).assetManager.Load(path, prority, taskType == ETaskType.gameobject, OnLoadComplete);
         }
 
         private void OnLoadComplete(AssetBundleInfo abInfo)
@@ -162,7 +162,8 @@ public class ResManager : Manager
                 if (abInfo.bundle != null)
                 {
                     pkgName = FairyGUI.UIPackage.AddPackage(abInfo.bundle).name;
-                }                
+                }
+                assetManager.RemoveBundleInfo(abInfo);
             }
             if (dl != null)
                 dl(pkgName);

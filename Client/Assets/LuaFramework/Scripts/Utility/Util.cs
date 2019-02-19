@@ -82,7 +82,7 @@ namespace LuaFramework
         {
             if (go != null)
             {
-                Transform sub = go.transform.FindChild(subnode);
+                Transform sub = go.transform.Find(subnode);
                 if (sub != null) return sub.GetComponent<T>();
             }
             return null;
@@ -95,7 +95,7 @@ namespace LuaFramework
         {
             if (go != null)
             {
-                Transform sub = go.FindChild(subnode);
+                Transform sub = go.Find(subnode);
                 if (sub != null) return sub.GetComponent<T>();
             }
             return null;
@@ -106,7 +106,7 @@ namespace LuaFramework
         /// </summary>
         public static T Get<T>(Component go, string subnode) where T : Component
         {
-            return go.transform.FindChild(subnode).GetComponent<T>();
+            return go.transform.Find(subnode).GetComponent<T>();
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace LuaFramework
         /// </summary>
         public static GameObject Child(Transform go, string subnode)
         {
-            Transform tran = go.FindChild(subnode);
+            Transform tran = go.Find(subnode);
             if (tran == null) return null;
             return tran.gameObject;
         }
@@ -165,7 +165,7 @@ namespace LuaFramework
         /// </summary>
         public static GameObject Peer(Transform go, string subnode)
         {
-            Transform tran = go.parent.FindChild(subnode);
+            Transform tran = go.parent.Find(subnode);
             if (tran == null) return null;
             return tran.gameObject;
         }

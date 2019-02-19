@@ -11,8 +11,6 @@ public class UnityEngine_WWWWrap
 		L.RegFunction("InitWWW", InitWWW);
 		L.RegFunction("EscapeURL", EscapeURL);
 		L.RegFunction("UnEscapeURL", UnEscapeURL);
-		L.RegFunction("GetAudioClip", GetAudioClip);
-		L.RegFunction("GetAudioClipCompressed", GetAudioClipCompressed);
 		L.RegFunction("LoadImageIntoTexture", LoadImageIntoTexture);
 		L.RegFunction("LoadFromCacheOrDownload", LoadFromCacheOrDownload);
 		L.RegFunction("New", _CreateUnityEngine_WWW);
@@ -24,7 +22,6 @@ public class UnityEngine_WWWWrap
 		L.RegVar("error", get_error, null);
 		L.RegVar("texture", get_texture, null);
 		L.RegVar("textureNonReadable", get_textureNonReadable, null);
-		L.RegVar("audioClip", get_audioClip, null);
 		L.RegVar("isDone", get_isDone, null);
 		L.RegVar("progress", get_progress, null);
 		L.RegVar("uploadProgress", get_uploadProgress, null);
@@ -178,93 +175,6 @@ public class UnityEngine_WWWWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.WWW.UnEscapeURL");
-			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetAudioClip(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 2)
-			{
-				UnityEngine.WWW obj = (UnityEngine.WWW)ToLua.CheckObject(L, 1, typeof(UnityEngine.WWW));
-				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
-				UnityEngine.AudioClip o = obj.GetAudioClip(arg0);
-				ToLua.PushSealed(L, o);
-				return 1;
-			}
-			else if (count == 3)
-			{
-				UnityEngine.WWW obj = (UnityEngine.WWW)ToLua.CheckObject(L, 1, typeof(UnityEngine.WWW));
-				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
-				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
-				UnityEngine.AudioClip o = obj.GetAudioClip(arg0, arg1);
-				ToLua.PushSealed(L, o);
-				return 1;
-			}
-			else if (count == 4)
-			{
-				UnityEngine.WWW obj = (UnityEngine.WWW)ToLua.CheckObject(L, 1, typeof(UnityEngine.WWW));
-				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
-				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
-				UnityEngine.AudioType arg2 = (UnityEngine.AudioType)ToLua.CheckObject(L, 4, typeof(UnityEngine.AudioType));
-				UnityEngine.AudioClip o = obj.GetAudioClip(arg0, arg1, arg2);
-				ToLua.PushSealed(L, o);
-				return 1;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.WWW.GetAudioClip");
-			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetAudioClipCompressed(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1)
-			{
-				UnityEngine.WWW obj = (UnityEngine.WWW)ToLua.CheckObject(L, 1, typeof(UnityEngine.WWW));
-				UnityEngine.AudioClip o = obj.GetAudioClipCompressed();
-				ToLua.PushSealed(L, o);
-				return 1;
-			}
-			else if (count == 2)
-			{
-				UnityEngine.WWW obj = (UnityEngine.WWW)ToLua.CheckObject(L, 1, typeof(UnityEngine.WWW));
-				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
-				UnityEngine.AudioClip o = obj.GetAudioClipCompressed(arg0);
-				ToLua.PushSealed(L, o);
-				return 1;
-			}
-			else if (count == 3)
-			{
-				UnityEngine.WWW obj = (UnityEngine.WWW)ToLua.CheckObject(L, 1, typeof(UnityEngine.WWW));
-				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
-				UnityEngine.AudioType arg1 = (UnityEngine.AudioType)ToLua.CheckObject(L, 3, typeof(UnityEngine.AudioType));
-				UnityEngine.AudioClip o = obj.GetAudioClipCompressed(arg0, arg1);
-				ToLua.PushSealed(L, o);
-				return 1;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.WWW.GetAudioClipCompressed");
 			}
 		}
 		catch (Exception e)
@@ -472,25 +382,6 @@ public class UnityEngine_WWWWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index textureNonReadable on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_audioClip(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			UnityEngine.WWW obj = (UnityEngine.WWW)o;
-			UnityEngine.AudioClip ret = obj.audioClip;
-			ToLua.PushSealed(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index audioClip on a nil value");
 		}
 	}
 

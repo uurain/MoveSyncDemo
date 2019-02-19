@@ -28,6 +28,7 @@ public class StartUpCommand : ControllerCommand {
         AppFacade.Instance.AddManager<GameSceneMgr>(ManagerName.GameScene);
         //AppFacade.Instance.AddManager<UpdateManager>(ManagerName.Update);
         AppFacade.Instance.AddManager<DownloadManager>(ManagerName.Download);
+        AppFacade.Instance.AddManager<DataMgr>(ManagerName.Data);
         AppFacade.Instance.AddManager<GameManager>(ManagerName.Game);        
     }
 }

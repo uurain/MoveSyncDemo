@@ -12,8 +12,6 @@ public class UnityEngine_AI_NavMeshAgentWrap
 		L.RegFunction("CompleteOffMeshLink", CompleteOffMeshLink);
 		L.RegFunction("Warp", Warp);
 		L.RegFunction("Move", Move);
-		L.RegFunction("Stop", Stop);
-		L.RegFunction("Resume", Resume);
 		L.RegFunction("ResetPath", ResetPath);
 		L.RegFunction("SetPath", SetPath);
 		L.RegFunction("FindClosestEdge", FindClosestEdge);
@@ -44,13 +42,17 @@ public class UnityEngine_AI_NavMeshAgentWrap
 		L.RegVar("isPathStale", get_isPathStale, null);
 		L.RegVar("pathStatus", get_pathStatus, null);
 		L.RegVar("pathEndPosition", get_pathEndPosition, null);
+		L.RegVar("isStopped", get_isStopped, set_isStopped);
 		L.RegVar("path", get_path, set_path);
+		L.RegVar("navMeshOwner", get_navMeshOwner, null);
+		L.RegVar("agentTypeID", get_agentTypeID, set_agentTypeID);
 		L.RegVar("areaMask", get_areaMask, set_areaMask);
 		L.RegVar("speed", get_speed, set_speed);
 		L.RegVar("angularSpeed", get_angularSpeed, set_angularSpeed);
 		L.RegVar("acceleration", get_acceleration, set_acceleration);
 		L.RegVar("updatePosition", get_updatePosition, set_updatePosition);
 		L.RegVar("updateRotation", get_updateRotation, set_updateRotation);
+		L.RegVar("updateUpAxis", get_updateUpAxis, set_updateUpAxis);
 		L.RegVar("radius", get_radius, set_radius);
 		L.RegVar("height", get_height, set_height);
 		L.RegVar("obstacleAvoidanceType", get_obstacleAvoidanceType, set_obstacleAvoidanceType);
@@ -161,38 +163,6 @@ public class UnityEngine_AI_NavMeshAgentWrap
 			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)ToLua.CheckObject(L, 1, typeof(UnityEngine.AI.NavMeshAgent));
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.Move(arg0);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Stop(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)ToLua.CheckObject(L, 1, typeof(UnityEngine.AI.NavMeshAgent));
-			obj.Stop();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Resume(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)ToLua.CheckObject(L, 1, typeof(UnityEngine.AI.NavMeshAgent));
-			obj.Resume();
 			return 0;
 		}
 		catch (Exception e)
@@ -730,6 +700,25 @@ public class UnityEngine_AI_NavMeshAgentWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_isStopped(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			bool ret = obj.isStopped;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isStopped on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_path(IntPtr L)
 	{
 		object o = null;
@@ -745,6 +734,44 @@ public class UnityEngine_AI_NavMeshAgentWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index path on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_navMeshOwner(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			UnityEngine.Object ret = obj.navMeshOwner;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index navMeshOwner on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_agentTypeID(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			int ret = obj.agentTypeID;
+			LuaDLL.lua_pushinteger(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index agentTypeID on a nil value");
 		}
 	}
 
@@ -859,6 +886,25 @@ public class UnityEngine_AI_NavMeshAgentWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index updateRotation on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_updateUpAxis(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			bool ret = obj.updateUpAxis;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index updateUpAxis on a nil value");
 		}
 	}
 
@@ -1110,6 +1156,25 @@ public class UnityEngine_AI_NavMeshAgentWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_isStopped(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.isStopped = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isStopped on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_path(IntPtr L)
 	{
 		object o = null;
@@ -1125,6 +1190,25 @@ public class UnityEngine_AI_NavMeshAgentWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index path on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_agentTypeID(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+			obj.agentTypeID = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index agentTypeID on a nil value");
 		}
 	}
 
@@ -1239,6 +1323,25 @@ public class UnityEngine_AI_NavMeshAgentWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index updateRotation on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_updateUpAxis(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AI.NavMeshAgent obj = (UnityEngine.AI.NavMeshAgent)o;
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.updateUpAxis = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index updateUpAxis on a nil value");
 		}
 	}
 

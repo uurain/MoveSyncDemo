@@ -23,9 +23,11 @@ public class UnityEngine_Texture2DWrap
 		L.RegFunction("Resize", Resize);
 		L.RegFunction("Compress", Compress);
 		L.RegFunction("PackTextures", PackTextures);
+		L.RegFunction("GenerateAtlas", GenerateAtlas);
 		L.RegFunction("ReadPixels", ReadPixels);
 		L.RegFunction("EncodeToPNG", EncodeToPNG);
 		L.RegFunction("EncodeToJPG", EncodeToJPG);
+		L.RegFunction("EncodeToEXR", EncodeToEXR);
 		L.RegFunction("New", _CreateUnityEngine_Texture2D);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
@@ -608,6 +610,26 @@ public class UnityEngine_Texture2DWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GenerateAtlas(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 4);
+			UnityEngine.Vector2[] arg0 = ToLua.CheckStructArray<UnityEngine.Vector2>(L, 1);
+			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+			int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+			System.Collections.Generic.List<UnityEngine.Rect> arg3 = (System.Collections.Generic.List<UnityEngine.Rect>)ToLua.CheckObject(L, 4, typeof(System.Collections.Generic.List<UnityEngine.Rect>));
+			bool o = UnityEngine.Texture2D.GenerateAtlas(arg0, arg1, arg2, arg3);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ReadPixels(IntPtr L)
 	{
 		try
@@ -686,6 +708,39 @@ public class UnityEngine_Texture2DWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.EncodeToJPG");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int EncodeToEXR(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1)
+			{
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				byte[] o = obj.EncodeToEXR();
+				ToLua.Push(L, o);
+				return 1;
+			}
+			else if (count == 2)
+			{
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Texture2D.EXRFlags arg0 = (UnityEngine.Texture2D.EXRFlags)ToLua.CheckObject(L, 2, typeof(UnityEngine.Texture2D.EXRFlags));
+				byte[] o = obj.EncodeToEXR(arg0);
+				ToLua.Push(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.EncodeToEXR");
 			}
 		}
 		catch (Exception e)

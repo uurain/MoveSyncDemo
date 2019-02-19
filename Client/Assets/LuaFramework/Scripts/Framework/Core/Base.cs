@@ -17,6 +17,7 @@ public class Base : MonoBehaviour {
     private GameSceneMgr m_GameSceneMgr;
     //private UpdateManager m_UpdateManager;
     private DownloadManager m_DownloadManager;
+    private DataMgr m_DataMgr;
     /// <summary>
     /// 注册消息
     /// </summary>
@@ -148,6 +149,18 @@ public class Base : MonoBehaviour {
             if(m_GameSceneMgr == null)
                 m_GameSceneMgr = facade.GetManager<GameSceneMgr>(ManagerName.GameScene);
             return m_GameSceneMgr;
+        }
+    }
+
+    protected DataMgr DataMgr
+    {
+        get
+        {
+            if (m_DataMgr == null)
+            {
+                m_DataMgr = facade.GetManager<DataMgr>(ManagerName.Data);
+            }
+            return m_DataMgr;
         }
     }
 }

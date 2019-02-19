@@ -50,6 +50,7 @@ public class UnityEngine_ParticleSystemWrap
 		L.RegVar("textureSheetAnimation", get_textureSheetAnimation, null);
 		L.RegVar("lights", get_lights, null);
 		L.RegVar("trails", get_trails, null);
+		L.RegVar("customData", get_customData, null);
 		L.EndClass();
 	}
 
@@ -966,6 +967,25 @@ public class UnityEngine_ParticleSystemWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index trails on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_customData(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
+			UnityEngine.ParticleSystem.CustomDataModule ret = obj.customData;
+			ToLua.PushValue(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index customData on a nil value");
 		}
 	}
 

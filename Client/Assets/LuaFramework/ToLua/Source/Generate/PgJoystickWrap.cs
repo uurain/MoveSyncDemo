@@ -17,7 +17,7 @@ public class PgJoystickWrap
 		L.RegFunction("ResetSceneRotPoint", ResetSceneRotPoint);
 		L.RegFunction("UpdateFollowOffset", UpdateFollowOffset);
 		L.RegFunction("Init", Init);
-		L.RegFunction("OnUpdate", OnUpdate);
+		L.RegFunction("Update", Update);
 		L.RegFunction("GetCamLookPos", GetCamLookPos);
 		L.RegFunction("LookAtPos", LookAtPos);
 		L.RegFunction("AutoCamZoomIn", AutoCamZoomIn);
@@ -243,13 +243,13 @@ public class PgJoystickWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int OnUpdate(IntPtr L)
+	static int Update(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
 			PgJoystick obj = (PgJoystick)ToLua.CheckObject<PgJoystick>(L, 1);
-			//obj.OnUpdate();
+			obj.Update();
 			return 0;
 		}
 		catch (Exception e)

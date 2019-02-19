@@ -21,6 +21,7 @@ public class UnityEngine_RenderSettingsWrap
 		L.RegVar("ambientLight", get_ambientLight, set_ambientLight);
 		L.RegVar("ambientIntensity", get_ambientIntensity, set_ambientIntensity);
 		L.RegVar("ambientProbe", get_ambientProbe, set_ambientProbe);
+		L.RegVar("subtractiveShadowColor", get_subtractiveShadowColor, set_subtractiveShadowColor);
 		L.RegVar("reflectionIntensity", get_reflectionIntensity, set_reflectionIntensity);
 		L.RegVar("reflectionBounces", get_reflectionBounces, set_reflectionBounces);
 		L.RegVar("haloStrength", get_haloStrength, set_haloStrength);
@@ -226,6 +227,20 @@ public class UnityEngine_RenderSettingsWrap
 		try
 		{
 			ToLua.PushValue(L, UnityEngine.RenderSettings.ambientProbe);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_subtractiveShadowColor(IntPtr L)
+	{
+		try
+		{
+			ToLua.Push(L, UnityEngine.RenderSettings.subtractiveShadowColor);
 			return 1;
 		}
 		catch (Exception e)
@@ -561,6 +576,21 @@ public class UnityEngine_RenderSettingsWrap
 		{
 			UnityEngine.Rendering.SphericalHarmonicsL2 arg0 = StackTraits<UnityEngine.Rendering.SphericalHarmonicsL2>.Check(L, 2);
 			UnityEngine.RenderSettings.ambientProbe = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_subtractiveShadowColor(IntPtr L)
+	{
+		try
+		{
+			UnityEngine.Color arg0 = ToLua.ToColor(L, 2);
+			UnityEngine.RenderSettings.subtractiveShadowColor = arg0;
 			return 0;
 		}
 		catch (Exception e)

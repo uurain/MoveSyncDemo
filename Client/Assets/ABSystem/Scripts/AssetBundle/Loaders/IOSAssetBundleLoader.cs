@@ -22,6 +22,20 @@ namespace Tangzx.ABSystem
             yield return req;
             _bundle = req.assetBundle;
 #endif
+            if(loadAsset)
+            {
+#if UNITY_5 || UNITY_2018
+                string[] names = _bundle.GetAllAssetNames();
+                if (names.Length > 0)
+                {
+                    AssetBundleRequest req2 = _bundle.LoadAssetAsync(names[0]);
+                    yield return req2;
+                    loadedAsset = req2.asset;
+                }
+#else
+                    loadedAsset = _bundle.mainAsset;
+#endif
+            }
             this.Complete();
         }
     }

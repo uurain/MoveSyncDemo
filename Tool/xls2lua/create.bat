@@ -1,0 +1,2 @@
+python ./create.py
+pause
