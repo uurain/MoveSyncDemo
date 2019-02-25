@@ -288,7 +288,7 @@ namespace Tangzx.ABSystem
             }
         }
 
-        void UnloadBundle(bool unload = true)
+        public void UnloadBundle(bool unload = true)
         {
             if (bundle != null)
             {

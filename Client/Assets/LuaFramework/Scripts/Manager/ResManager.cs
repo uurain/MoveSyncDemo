@@ -17,6 +17,7 @@ public class ResManager : Manager
     {
         gameobject,
         abinfo,
+        asset,
     }
     public class TaskLoader
     {
@@ -30,7 +31,8 @@ public class ResManager : Manager
         private string path;
 
         public LoadGameObjectCompleteHandler onGoComplete;
-        public AssetBundleManager.LoadAssetCompleteHandler onAssetComplete;
+        public AssetBundleManager.LoadAssetCompleteHandler onAbInfoComplete;
+        public LoadObjectCompleteHandler onAssetComplete;
 
         public void Begin(int prority = 0)
         {
@@ -66,7 +68,16 @@ public class ResManager : Manager
                             RequestAbInfoComplete(abInfo);
                         }
                         break;
+                    case ETaskType.asset:
+                        {
+                            RequestAssetComplete(abInfo);
+                        }
+                        break;
                 }
+            }
+            else
+            {
+                Debug.LogAssertionFormat("TaskLoader abinfonull:%{0}", path);
             }
             RequstComplete();
         }
@@ -83,11 +94,23 @@ public class ResManager : Manager
 
         private void RequestAbInfoComplete(AssetBundleInfo abInfo)
         {
+            if (onAbInfoComplete != null)
+            {
+                var handler = onAbInfoComplete;
+                onAbInfoComplete = null;
+                handler(abInfo);
+            }
+        }
+
+        private void RequestAssetComplete(AssetBundleInfo abInfo)
+        {
             if (onAssetComplete != null)
             {
                 var handler = onAssetComplete;
                 onAssetComplete = null;
-                handler(abInfo);
+                UnityEngine.Object asset = abInfo.mainObject;
+                abInfo.UnloadBundle(false);
+                handler(abInfo.mainObject);
             }
         }
 
@@ -214,7 +237,23 @@ public class ResManager : Manager
     public void Load(string path, AssetBundleManager.LoadAssetCompleteHandler handler = null)
     {
         TaskLoader taskLoader = CreateLoadTaskLoader(path, ETaskType.abinfo);
+        taskLoader.onAbInfoComplete += handler;
+
+        AddWaitQueue(taskLoader);
+    }
+
+    public void Load(string path, LoadObjectCompleteHandler handler = null)
+    {
+        TaskLoader taskLoader = CreateLoadTaskLoader(path, ETaskType.asset);
         taskLoader.onAssetComplete += handler;
+
+        AddWaitQueue(taskLoader);
+    }
+
+    public void Load(string path, LoadGameObjectCompleteHandler handler = null)
+    {
+        TaskLoader taskLoader = CreateLoadTaskLoader(path, ETaskType.gameobject);
+        taskLoader.onGoComplete += handler;
 
         AddWaitQueue(taskLoader);
     }
@@ -306,6 +345,7 @@ public class ResManager : Manager
         else
         {
             loader = new TaskLoader(abFileName, t);
+            _loaderCache[abFileName] = loader;
         }
         return loader;
     }
